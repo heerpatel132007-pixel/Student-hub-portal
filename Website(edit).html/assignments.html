@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Assignments</title>
+
+    <style>
+
+        
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef5ff;
+        }
+
+        
+        .header{
+            background:#073b8c;
+            color:white;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            padding:15px 50px;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        
+        .menu a{
+            color:white;
+            text-decoration:none;
+
+            border:1px solid white;
+            padding:10px 25px;
+
+            border-radius:6px;
+            margin-left:10px;
+        }
+
+        .menu a:hover{
+            background:white;
+            color:#073b8c;
+        }
+
+       
+        .container{
+            width:80%;
+            margin:45px auto;
+            text-align:center;
+        }
+
+       
+        h1{
+            color:#073b8c;
+            font-size:40px;
+            margin-bottom:10px;
+        }
+
+        .line{
+            width:70px;
+            height:4px;
+            background:#1976e8;
+
+            margin:0 auto 35px;
+
+            border-radius:5px;
+        }
+
+        
+        .assignment-box{
+            width:80%;
+            margin:auto;
+
+            background:white;
+
+            padding:10px 35px;
+
+            border-radius:12px;
+
+            box-shadow:0 3px 12px #d0d0d0;
+
+            text-align:left;
+        }
+
+       
+        .assignment{
+            display:flex;
+            align-items:center;
+
+            padding:25px 10px;
+
+            border-bottom:1px solid #ddd;
+        }
+
+        .assignment:last-child{
+            border-bottom:none;
+        }
+
+        
+        .icon{
+            width:65px;
+            height:65px;
+
+            border-radius:50%;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            font-size:30px;
+
+            margin-right:30px;
+        }
+
+        
+        .html .icon{
+            background:#fff0df;
+        }
+
+        .css .icon{
+            background:#e5f0ff;
+        }
+
+        .java .icon{
+            background:#ffe6e6;
+        }
+
+        .database .icon{
+            background:#eee5ff;
+        }
+
+        
+        .assignment h2{
+            margin:0;
+            color:#111;
+            font-size:22px;
+        }
+
+       
+        .dashboard{
+            display:inline-block;
+
+            margin-top:35px;
+
+            background:#1976e8;
+            color:white;
+
+            text-decoration:none;
+
+            padding:13px 40px;
+
+            border-radius:6px;
+
+            font-size:17px;
+        }
+
+        .dashboard:hover{
+            background:#073b8c;
+        }
+
+        
+        footer{
+            background:#073b8c;
+            color:white;
+
+            text-align:center;
+
+            padding:20px;
+
+            margin-top:50px;
+        }
+
+        
+        @media(max-width:700px){
+
+            .header{
+                padding:15px 20px;
+            }
+
+            .logo{
+                font-size:22px;
+            }
+
+            .assignment-box{
+                width:95%;
+                box-sizing:border-box;
+            }
+
+            .assignment h2{
+                font-size:18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+<div class="header">
+
+    <div class="logo">
+        🎓 StudentHub
+    </div>
+
+    <div class="menu">
+
+        <a href="login.html">
+            Login
+        </a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="container">
+
+    <h1>Assignments</h1>
+
+    <div class="line"></div>
+
+
+    <div class="assignment-box">
+
+
+        
+
+        <div class="assignment html">
+
+            <div class="icon">
+                🌐
+            </div>
+
+            <h2>
+                HTML Assignment
+            </h2>
+
+        </div>
+
+
+        
+
+        <div class="assignment css">
+
+            <div class="icon">
+                🎨
+            </div>
+
+            <h2>
+                CSS Assignment
+            </h2>
+
+        </div>
+
+
+       
+
+        <div class="assignment java">
+
+            <div class="icon">
+                ☕
+            </div>
+
+            <h2>
+                Java Assignment
+            </h2>
+
+        </div>
+
+
+        
+
+        <div class="assignment database">
+
+            <div class="icon">
+                🗄️
+            </div>
+
+            <h2>
+                Database Assignment
+            </h2>
+
+        </div>
+
+
+    </div>
+
+
+    
+
+    <a href="dashboard.html" class="dashboard">
+        Dashboard
+    </a>
+
+</div>
+
+
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All rights reserved.
+
+</footer>
+
+
+</body>
+
+</html>

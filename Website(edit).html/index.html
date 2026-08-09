@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>StudentHub Portal</title>
+
+<style>
+
+
+
+*{
+    
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef4ff;
+}
+
+
+
+
+header{
+    background:#0b2e73;
+    padding:18px 60px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    color:white;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:55px;
+}
+
+.logo h2{
+    font-size:34px;
+}
+
+
+
+
+nav a{
+    text-decoration:none;
+    color:white;
+
+    padding:10px 25px;
+
+    border:1px solid white;
+    border-radius:8px;
+
+    font-size:18px;
+}
+
+nav a:hover{
+    background:white;
+    color:#0b2e73;
+}
+
+
+
+
+.hero{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:60px;
+
+    background:white;
+}
+
+.hero img{
+    width:380px;
+}
+
+.content{
+    margin-left:60px;
+}
+
+.content h1{
+    font-size:48px;
+    color:#0b2e73;
+    margin-bottom:20px;
+}
+
+.content p{
+    font-size:22px;
+    margin-bottom:30px;
+    color:#444;
+}
+
+
+
+.btn{
+    display:inline-block;
+
+    padding:15px 40px;
+
+    background:#0b2e73;
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    margin-right:20px;
+
+    font-size:18px;
+
+    border:2px solid #0b2e73;
+}
+
+
+
+
+.btn2{
+    background:#0b2e73;
+    color:white;
+
+    border:2px solid #0b2e73;
+}
+
+
+/* Button Hover */
+
+.btn:hover{
+    background:#1565c0;
+    color:white;
+}
+
+
+.features{
+    display:flex;
+    justify-content:space-evenly;
+
+    padding:40px;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.card{
+    width:210px;
+
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+.card img{
+    width:70px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#0b2e73;
+}
+
+.card p{
+    color:#555;
+}
+
+
+
+
+.card:nth-child(1){
+    background:#edf5ff;
+}
+
+.card:nth-child(2){
+    background:#eefdf1;
+}
+
+.card:nth-child(3){
+    background:#fff8e8;
+}
+
+.card:nth-child(4){
+    background:#f3eeff;
+}
+
+.card:nth-child(5){
+    background:#fff1f5;
+}
+
+
+
+footer{
+    background:#0b2e73;
+
+    color:white;
+
+    text-align:center;
+
+    padding:18px;
+
+    margin-top:20px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+
+<header>
+
+    <div class="logo">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
+
+        <h2>StudentHub</h2>
+
+    </div>
+
+
+    <nav>
+
+        <a href="contact.html">
+            Contact Us
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+
+<section class="hero">
+
+    <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-education-4268366-3551768.png">
+
+
+    <div class="content">
+
+        <h1>
+            Welcome to StudentHub Portal
+        </h1>
+
+        <p>
+            This portal helps students manage their studies.
+        </p>
+
+
+    
+
+        <a href="login.html" class="btn">
+            Login
+        </a>
+
+
+        
+
+        <a href="dashboard.html" class="btn btn2">
+            Dashboard
+        </a>
+
+    </div>
+
+</section>
+
+
+
+
+<section class="features">
+
+
+
+
+    <div class="card">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/2436/2436874.png">
+
+        <h3>
+            View Courses
+        </h3>
+
+        <p>
+            Explore your courses
+        </p>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png">
+
+        <h3>
+            Check Timetable
+        </h3>
+
+        <p>
+            View your class schedule
+        </p>
+
+    </div>
+
+
+
+
+    <div class="card">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991112.png">
+
+        <h3>
+            View Assignments
+        </h3>
+
+        <p>
+            See and submit assignments
+        </p>
+
+    </div>
+
+
+    
+
+    <div class="card">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png">
+
+        <h3>
+            Check Results
+        </h3>
+
+        <p>
+            View your academic performance
+        </p>
+
+    </div>
+
+
+
+
+    <div class="card">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827392.png">
+
+        <h3>
+            Read Notices
+        </h3>
+
+        <p>
+            Stay updated with latest notices
+        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All Rights Reserved.
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Results</title>
+
+    <style>
+
+        
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef3ff;
+        }
+
+       
+        .header{
+            background:#0b2e73;
+            color:white;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            padding:15px 40px;
+        }
+
+        .header h2{
+            margin:0;
+            font-size:28px;
+        }
+
+       
+        .header a{
+            color:white;
+            text-decoration:none;
+
+            border:2px solid white;
+            padding:8px 18px;
+
+            border-radius:5px;
+            margin-left:10px;
+        }
+
+        .header a:hover{
+            background:white;
+            color:#0b2e73;
+        }
+
+        
+        .container{
+            width:80%;
+            margin:45px auto;
+            text-align:center;
+        }
+
+       
+        h1{
+            color:#0b2e73;
+            font-size:38px;
+            margin-bottom:10px;
+        }
+
+        .line{
+            width:70px;
+            height:4px;
+            background:#1976e8;
+
+            margin:0 auto 35px;
+        }
+
+        
+        table{
+            width:80%;
+            margin:auto;
+
+            border-collapse:collapse;
+
+            background:white;
+
+            box-shadow:0 3px 12px #ccc;
+
+            border-radius:8px;
+            overflow:hidden;
+        }
+
+      
+        th{
+            background:#1565c0;
+            color:white;
+
+            padding:16px;
+
+            font-size:18px;
+        }
+
+       
+        td{
+            padding:16px;
+
+            border-bottom:1px solid #ddd;
+
+            color:#333;
+
+            font-size:16px;
+        }
+
+      
+        tr:nth-child(even){
+            background:#f0f6ff;
+        }
+
+        
+        tr:hover{
+            background:#dceaff;
+        }
+
+        
+        .marks{
+            font-weight:bold;
+            color:#0b2e73;
+        }
+
+        
+        .dashboard{
+            display:inline-block;
+
+            margin-top:35px;
+
+            background:#1976e8;
+            color:white;
+
+            text-decoration:none;
+
+            padding:12px 30px;
+
+            border-radius:6px;
+
+            font-size:16px;
+        }
+
+        .dashboard:hover{
+            background:#0b2e73;
+        }
+
+       
+        footer{
+            margin-top:50px;
+
+            background:#0b2e73;
+            color:white;
+
+            text-align:center;
+
+            padding:18px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+
+<div class="header">
+
+    <h2>🎓 StudentHub</h2>
+
+    <div>
+
+        <a href="login.html">Login</a>
+
+        <a href="dashboard.html">Dashboard</a>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="container">
+
+    <h1>Results</h1>
+
+    <div class="line"></div>
+
+
+    <table>
+
+        <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+        </tr>
+
+        <tr>
+            <td>HTML</td>
+            <td class="marks">90</td>
+        </tr>
+
+        <tr>
+            <td>Java</td>
+            <td class="marks">85</td>
+        </tr>
+
+        <tr>
+            <td>Python</td>
+            <td class="marks">88</td>
+        </tr>
+
+        <tr>
+            <td>Database</td>
+            <td class="marks">80</td>
+        </tr>
+
+    </table>
+
+
+    
+
+    <a href="dashboard.html" class="dashboard">
+        ← Back to Dashboard
+    </a>
+
+</div>
+
+
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All Rights Reserved.
+
+</footer>
+
+
+</body>
+
+</html>

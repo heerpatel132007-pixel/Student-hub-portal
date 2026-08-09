@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Courses</title>
+
+    <style>
+
+        
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef5ff;
+        }
+
+        
+        .header{
+            background:#073b8c;
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 50px;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        .menu a{
+            color:white;
+            text-decoration:none;
+            border:1px solid white;
+            padding:10px 25px;
+            border-radius:6px;
+            margin-left:10px;
+        }
+
+        .menu a:hover{
+            background:white;
+            color:#073b8c;
+        }
+
+        
+        .container{
+            width:85%;
+            margin:40px auto;
+            text-align:center;
+        }
+
+        
+        h1{
+            color:#073b8c;
+            font-size:38px;
+        }
+
+        .line{
+            width:70px;
+            height:4px;
+            background:#1976e8;
+            margin:0 auto 35px;
+        }
+
+       
+        .courses{
+            display:flex;
+            justify-content:center;
+            flex-wrap:wrap;
+            gap:25px;
+        }
+
+        .course{
+            width:220px;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 3px 12px #ccc;
+            box-sizing:border-box;
+        }
+
+        .course:hover{
+            transform:translateY(-5px);
+            box-shadow:0 6px 15px #aaa;
+        }
+
+        
+        .icon{
+            width:65px;
+            height:65px;
+            margin:auto;
+            border-radius:50%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:30px;
+        }
+
+        .html .icon{
+            background:#ff7043;
+        }
+
+        .css .icon{
+            background:#2196f3;
+        }
+
+        .java .icon{
+            background:#e53935;
+        }
+
+        .python .icon{
+            background:#fbc02d;
+        }
+
+        .database .icon{
+            background:#43a047;
+        }
+
+        .course h2{
+            color:#073b8c;
+            margin:15px 0 10px;
+        }
+
+        .course p{
+            color:#555;
+        }
+
+       
+        .dashboard{
+            display:inline-block;
+            margin-top:40px;
+            background:#1976e8;
+            color:white;
+            text-decoration:none;
+            padding:12px 30px;
+            border-radius:6px;
+        }
+
+        .dashboard:hover{
+            background:#073b8c;
+        }
+
+        
+        footer{
+            background:#073b8c;
+            color:white;
+            text-align:center;
+            padding:18px;
+            margin-top:50px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+<div class="header">
+
+    <div class="logo">
+        🎓 StudentHub
+    </div>
+
+    <div class="menu">
+
+        <a href="login.html">Login</a>
+
+        <a href="dashboard.html">Dashboard</a>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="container">
+
+    <h1>Courses</h1>
+
+    <div class="line"></div>
+
+
+    <div class="courses">
+
+
+        
+
+        <div class="course html">
+
+            <div class="icon">
+                🌐
+            </div>
+
+            <h2>HTML</h2>
+
+            <p>
+                Learn the basics of creating web pages.
+            </p>
+
+        </div>
+
+
+        
+
+        <div class="course css">
+
+            <div class="icon">
+                🎨
+            </div>
+
+            <h2>CSS</h2>
+
+            <p>
+                Learn how to design and style websites.
+            </p>
+
+        </div>
+
+
+       
+
+        <div class="course java">
+
+            <div class="icon">
+                ☕
+            </div>
+
+            <h2>Java</h2>
+
+            <p>
+                Learn programming and object-oriented concepts.
+            </p>
+
+        </div>
+
+
+        
+
+        <div class="course python">
+
+            <div class="icon">
+                🐍
+            </div>
+
+            <h2>Python</h2>
+
+            <p>
+                Learn Python programming and problem solving.
+            </p>
+
+        </div>
+
+
+        
+
+        <div class="course database">
+
+            <div class="icon">
+                🗄️
+            </div>
+
+            <h2>Database</h2>
+
+            <p>
+                Learn how to store and manage data.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    
+
+    <a href="dashboard.html" class="dashboard">
+        ← Back to Dashboard
+    </a>
+
+</div>
+
+
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All rights reserved.
+
+</footer>
+
+
+</body>
+</html>
