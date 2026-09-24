@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Contact Us</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef3ff;
+        }
+
+       
+        .header{
+            background:#0b2e73;
+            color:white;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            padding:15px 40px;
+        }
+
+        .header h2{
+            margin:0;
+            font-size:28px;
+        }
+
+        
+        .header a{
+            color:white;
+            text-decoration:none;
+
+            border:2px solid white;
+            padding:8px 20px;
+
+            border-radius:5px;
+        }
+
+        .header a:hover{
+            background:white;
+            color:#0b2e73;
+        }
+
+        
+        .container{
+            width:80%;
+            max-width:600px;
+
+            margin:50px auto;
+
+            text-align:center;
+        }
+
+       
+        h1{
+            color:#0b2e73;
+            font-size:38px;
+        }
+
+        .line{
+            width:70px;
+            height:4px;
+
+            background:#1976e8;
+
+            margin:0 auto 30px;
+        }
+
+        
+        .form-box{
+            background:white;
+
+            padding:30px;
+
+            border-radius:12px;
+
+            box-shadow:0 3px 12px #ccc;
+
+            text-align:left;
+        }
+
+        
+        label{
+            display:block;
+
+            color:#0b2e73;
+
+            font-weight:bold;
+
+            margin-top:15px;
+            margin-bottom:7px;
+        }
+
+        
+        input,
+        textarea{
+            width:100%;
+
+            padding:12px;
+
+            box-sizing:border-box;
+
+            border:1px solid #ccc;
+
+            border-radius:6px;
+
+            font-size:15px;
+
+            font-family:Arial, sans-serif;
+        }
+
+        input:focus,
+        textarea:focus{
+            outline:none;
+
+            border:2px solid #1976e8;
+        }
+
+        textarea{
+            resize:none;
+        }
+
+        
+        button{
+            display:block;
+
+            margin:25px auto 5px;
+
+            background:#1976e8;
+
+            color:white;
+
+            border:none;
+
+            padding:12px 35px;
+
+            border-radius:6px;
+
+            font-size:16px;
+
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#0b2e73;
+        }
+
+        
+        .Home{
+            display:block;
+
+            text-align:center;
+
+            margin-top:25px;
+
+            color:#1976e8;
+
+            text-decoration:none;
+
+            font-weight:bold;
+        }
+
+        .Home:hover{
+            text-decoration:underline;
+        }
+
+        
+        footer{
+            background:#0b2e73;
+
+            color:white;
+
+            text-align:center;
+
+            padding:18px;
+
+            margin-top:50px;
+        }
+
+        .faq{
+            background:white;
+
+            margin-top:25px;
+
+            border-radius:8px;
+
+            box-shadow:0 3px 12px #ccc;
+
+            text-align:left;
+        }
+
+        .faq-q{
+            padding:15px 20px;
+
+            cursor:pointer;
+
+            font-weight:bold;
+
+            color:#0b2e73;
+
+            border-bottom:1px solid #eee;
+        }
+
+        .faq-a{
+            display:none;
+
+            padding:0 20px 15px;
+
+            color:#555;
+        }
+
+
+        /* ========================= */
+        /* DARK / LIGHT MODE BUTTON */
+        /* ========================= */
+
+        #themeButton{
+            width:50px !important;
+            height:50px !important;
+
+            padding:0 !important;
+
+            margin:0 0 0 15px !important;
+
+            border:none !important;
+
+            border-radius:50% !important;
+
+            background:white !important;
+
+            font-size:25px !important;
+
+            display:inline-flex !important;
+
+            align-items:center !important;
+
+            justify-content:center !important;
+
+            cursor:pointer;
+
+            vertical-align:middle;
+        }
+
+        #themeButton:hover{
+            background:white !important;
+        }
+
+
+        /* ========================= */
+        /* DARK MODE */
+        /* ========================= */
+
+        .dark{
+            background:#222;
+            color:white;
+        }
+
+        .dark .header{
+            background:#000;
+        }
+
+        .dark h1{
+            color:white;
+        }
+
+        .dark footer{
+            background:#000;
+        }
+
+
+        /* Keep Form White */
+
+        .dark .form-box{
+            background:white;
+        }
+
+        .dark .form-box label{
+            color:#0b2e73;
+        }
+
+        .dark .form-box input,
+        .dark .form-box textarea{
+            background:white;
+            color:#222;
+        }
+
+
+        /* Keep FAQ White */
+
+        .dark .faq{
+            background:white;
+        }
+
+        .dark .faq-q{
+            color:#0b2e73;
+        }
+
+        .dark .faq-a{
+            color:#555;
+        }
+
+        .dark .Home{
+            color:#1976e8;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="header">
+
+    <h2>🎓 StudentHub</h2>
+
+    <span>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <button id="themeButton" onclick="toggleTheme()">🌙</button>
+
+    </span>
+
+</div>
+
+
+
+<div class="container">
+
+    <h1>Contact Us</h1>
+
+    <div class="line"></div>
+
+
+    <div class="form-box">
+
+        <form>
+
+            <label>Name</label>
+
+            <input type="text"
+                   placeholder="Enter your name">
+
+
+            <label>Email</label>
+
+            <input type="email"
+                   placeholder="Enter your email">
+
+
+            <label>Message</label>
+
+            <textarea rows="5"
+                      placeholder="Enter your message"></textarea>
+
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+
+        <a href="index.html" class="Home">
+            ← Back to Home
+        </a>
+
+    </div>
+
+
+    <div class="faq">
+
+        <div class="faq-q" onclick="toggleFaq('faq1')">
+            How do I reset my password?
+        </div>
+
+        <div class="faq-a" id="faq1">
+            Use the "Forgot Password" link on the Login page.
+        </div>
+
+
+        <div class="faq-q" onclick="toggleFaq('faq2')">
+            Where can I see my results?
+        </div>
+
+        <div class="faq-a" id="faq2">
+            Go to the Results page from your Dashboard.
+        </div>
+
+
+        <div class="faq-q" onclick="toggleFaq('faq3')">
+            How do I submit an assignment?
+        </div>
+
+        <div class="faq-a" id="faq3">
+            Open the Assignments page and follow the instructions there.
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All Rights Reserved.
+
+</footer>
+
+
+<script src="contact.js"></script>
+
+</body>
+
+</html>

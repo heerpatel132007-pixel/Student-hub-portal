@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Student Login</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#eef3ff;
+}
+
+header{
+    background:#0b2e73;
+    color:white;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:50px;
+    height:50px;
+}
+
+.logo h2{
+    margin:0;
+    font-size:30px;
+}
+
+.home{
+    color:white;
+    text-decoration:none;
+    border:1px solid white;
+    padding:9px 20px;
+    border-radius:6px;
+}
+
+#themeButton{
+    width:45px;
+    height:45px;
+    margin-left:15px;
+    border:0;
+    border-radius:50%;
+    background:white;
+    font-size:25px;
+    cursor:pointer;
+}
+
+h1{
+    color:#0b2e73;
+    text-align:center;
+    margin-top:45px;
+}
+
+form{
+    background:white;
+    width:350px;
+    margin:30px auto;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 3px 12px #ccc;
+}
+
+label{
+    color:#0b2e73;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:7px 0 20px;
+    box-sizing:border-box;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+form button{
+    background:#1565c0;
+    color:white;
+    padding:11px 30px;
+    border:0;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.back{
+    color:#0b2e73;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+footer{
+    background:#0b2e73;
+    color:white;
+    text-align:center;
+    padding:18px;
+    margin-top:50px;
+}
+
+/* Dark Mode */
+
+.dark{
+    background:#222;
+}
+
+.dark header,
+.dark footer{
+    background:#000;
+}
+
+.dark h1{
+    color:white;
+}
+
+/* Login box stays white */
+
+.dark form{
+    background:white;
+}
+
+.dark label{
+    color:#0b2e73;
+}
+
+.dark input{
+    background:white;
+    color:#222;
+}
+
+.dark .back{
+    color:#0b2e73;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="logo">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
+
+        <h2>StudentHub</h2>
+
+    </div>
+
+    <span>
+
+        <a href="index.html" class="home">
+            Home
+        </a>
+
+        <button id="themeButton" onclick="toggleTheme()">🌙</button>
+
+    </span>
+
+</header>
+
+
+<h1>Student Login</h1>
+
+
+<form>
+
+    <label>Username</label>
+
+    <input type="text" placeholder="Enter your username">
+
+    <label>Password</label>
+
+    <input type="password" placeholder="Enter your password">
+
+    <button type="submit">
+        Login
+    </button>
+
+    <br><br>
+
+    <a href="index.html" class="back">
+        ← Back to Home
+    </a>
+
+</form>
+
+
+<footer>
+    © 2026 StudentHub Portal. All Rights Reserved.
+</footer>
+
+
+<script src="login.js"></script>
+
+</body>
+</html>
