@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef4ff;
+        }
+
+        .header{
+            background:#0b2e73;
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 40px;
+        }
+
+        .header h2{
+            margin:0;
+            font-size:30px;
+        }
+
+        .header a{
+            color:white;
+            text-decoration:none;
+            border:1px solid white;
+            padding:10px 25px;
+            border-radius:6px;
+        }
+
+        .header a:hover{
+            background:white;
+            color:#0b2e73;
+        }
+
+        /* Theme Button */
+
+        #themeButton{
+            width:50px;
+            height:45px;
+            margin-left:15px;
+            border:0;
+            border-radius:50%;
+            background:white;
+            font-size:25px;
+            cursor:pointer;
+        }
+
+        .container{
+            width:90%;
+            margin:40px auto;
+            text-align:center;
+        }
+
+        .container h1{
+            color:#0b2e73;
+            font-size:40px;
+        }
+
+        .cards{
+            display:flex;
+            justify-content:center;
+            flex-wrap:wrap;
+            gap:25px;
+            margin-top:35px;
+        }
+
+        .box{
+            width:250px;
+            height:180px;
+            background:white;
+            border-radius:12px;
+            padding:20px;
+            box-sizing:border-box;
+            box-shadow:0px 3px 10px #ccc;
+            text-decoration:none;
+            color:#222;
+        }
+
+        .box:hover{
+            transform:scale(1.03);
+            box-shadow:0px 5px 15px #aaa;
+        }
+
+        .icon{
+            font-size:50px;
+            margin-bottom:10px;
+        }
+
+        .box h3{
+            color:#0b2e73;
+            margin:5px;
+            font-size:22px;
+        }
+
+        .box p{
+            color:#555;
+            font-size:15px;
+        }
+
+        .profile{
+            border-top:5px solid #287be8;
+        }
+
+        .courses{
+            border-top:5px solid #39b96b;
+        }
+
+        .timetable{
+            border-top:5px solid #f5aa19;
+        }
+
+        .assignments{
+            border-top:5px solid #8a4de8;
+        }
+
+        .results{
+            border-top:5px solid #18b9c9;
+        }
+
+        .notices{
+            border-top:5px solid #ef476f;
+        }
+
+        .back{
+            display:inline-block;
+            margin-top:40px;
+            color:#1565c0;
+            text-decoration:none;
+            font-size:18px;
+            font-weight:bold;
+        }
+
+        .back:hover{
+            text-decoration:underline;
+        }
+
+        footer{
+            background:#0b2e73;
+            color:white;
+            text-align:center;
+            padding:18px;
+            margin-top:50px;
+        }
+
+        /* Dark Mode */
+
+        .dark{
+            background:#222;
+            color:white;
+        }
+
+        .dark .header{
+            background:#000;
+        }
+
+        .dark .container h1{
+            color:white;
+        }
+
+        .dark .box{
+            background:white;
+            color:#222;
+        }
+
+        .dark footer{
+            background:#000;
+        }
+
+        .hamburger{
+            display:none;
+            background:none;
+            border:none;
+            color:white;
+            font-size:22px;
+            cursor:pointer;
+        }
+
+        @media(max-width:700px){
+
+            .hamburger{
+                display:block;
+            }
+
+            #nav a{
+                display:none;
+            }
+
+            #nav.show a{
+                display:block;
+            }
+        }
+
+        .banner{
+            background:#fff3cd;
+            padding:12px 20px;
+            margin-bottom:20px;
+            border-radius:6px;
+            text-align:left;
+        }
+
+        .banner button{
+            float:right;
+            border:none;
+            background:none;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="header">
+
+    <h2>🎓 StudentHub</h2>
+
+    <div id="nav">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <button id="themeButton" onclick="toggleTheme()">🌙</button>
+
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    </div>
+
+</div>
+
+
+<div class="container">
+
+    <h1>Dashboard</h1>
+
+    <div class="banner" id="banner">
+        📢 Semester starts July 20
+        <button onclick="closeBanner()">X</button>
+    </div>
+
+
+    <div class="cards">
+
+
+        <a href="profile.html" class="box profile">
+
+            <div class="icon">👤</div>
+
+            <h3>Profile</h3>
+
+            <p>View and update your personal information.</p>
+
+        </a>
+
+
+        <a href="courses.html" class="box courses">
+
+            <div class="icon">📚</div>
+
+            <h3>Courses</h3>
+
+            <p>View your enrolled courses and details.</p>
+
+        </a>
+
+
+        <a href="timetable.html" class="box timetable">
+
+            <div class="icon">📅</div>
+
+            <h3>Timetable</h3>
+
+            <p>Check your class schedule and timings.</p>
+
+        </a>
+
+
+        <a href="assignments.html" class="box assignments">
+
+            <div class="icon">📝</div>
+
+            <h3>Assignments</h3>
+
+            <p>View and submit your assignments.</p>
+
+        </a>
+
+
+        <a href="results.html" class="box results">
+
+            <div class="icon">📊</div>
+
+            <h3>Results</h3>
+
+            <p>Check your academic performance.</p>
+
+        </a>
+
+
+        <a href="notices.html" class="box notices">
+
+            <div class="icon">🔔</div>
+
+            <h3>Notices</h3>
+
+            <p>Stay updated with latest notices.</p>
+
+        </a>
+
+    </div>
+
+
+    <a href="index.html" class="back">
+        ← Back to Home
+    </a>
+
+</div>
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All rights reserved.
+
+</footer>
+
+
+<script src="dashboard.js"></script>
+
+</body>
+
+</html>
