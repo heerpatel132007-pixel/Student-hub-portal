@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Notices</title>
+
+    <style>
+
+        
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef3ff;
+        }
+
+       
+        .header{
+            background:#0b2e73;
+            color:white;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            padding:15px 40px;
+        }
+
+        .header h2{
+            margin:0;
+            font-size:28px;
+        }
+
+        
+        .header a{
+            color:white;
+            text-decoration:none;
+
+            border:2px solid white;
+            padding:8px 18px;
+
+            border-radius:5px;
+            margin-left:10px;
+        }
+
+        .header a:hover{
+            background:white;
+            color:#0b2e73;
+        }
+
+        
+        .container{
+            width:80%;
+            margin:45px auto;
+            text-align:center;
+        }
+
+       
+        h1{
+            color:#0b2e73;
+            font-size:38px;
+            margin-bottom:10px;
+        }
+
+        .line{
+            width:70px;
+            height:4px;
+            background:#1976e8;
+
+            margin:0 auto 35px;
+
+            border-radius:5px;
+        }
+
+       
+        .notice-box{
+            width:80%;
+            margin:20px auto;
+
+            background:white;
+
+            padding:25px;
+
+            border-radius:10px;
+
+            box-shadow:0 3px 10px #ccc;
+
+            text-align:left;
+
+            font-size:19px;
+            font-weight:bold;
+
+            color:#333;
+
+            border-left:6px solid #1976e8;
+        }
+
+       
+        .notice-box:nth-child(2){
+            border-left-color:#43a047;
+        }
+
+        .notice-box:nth-child(3){
+            border-left-color:#f5a623;
+        }
+
+        .notice-box:hover{
+            transform:translateY(-3px);
+            box-shadow:0 5px 15px #bbb;
+        }
+
+        
+        .dashboard{
+            display:inline-block;
+
+            margin-top:30px;
+
+            background:#1976e8;
+            color:white;
+
+            text-decoration:none;
+
+            padding:12px 30px;
+
+            border-radius:6px;
+
+            font-size:16px;
+        }
+
+        .dashboard:hover{
+            background:#0b2e73;
+        }
+
+       
+        footer{
+            background:#0b2e73;
+            color:white;
+
+            text-align:center;
+
+            padding:18px;
+
+            margin-top:50px;
+        }
+
+        .dark{
+            background:#222;
+            color:white;
+        }
+
+        .dark .header{
+            background:#000;
+        }
+
+        .hamburger{
+            display:none;
+            background:none;
+            border:none;
+            color:white;
+            font-size:22px;
+            cursor:pointer;
+        }
+
+        @media(max-width:700px){
+            .hamburger{
+                display:block;
+            }
+
+            #nav a{
+                display:none;
+            }
+
+            #nav.show a{
+                display:block;
+            }
+        }
+
+
+        /* ========================= */
+        /* THEME BUTTON */
+        /* ========================= */
+
+        #nav > button:first-of-type{
+            width:50px !important;
+            height:50px !important;
+
+            padding:0 !important;
+
+            margin-left:15px !important;
+
+            border:none !important;
+            border-radius:50% !important;
+
+            background:white !important;
+
+            color:#0b2e73;
+
+            font-size:25px !important;
+
+            display:inline-flex !important;
+
+            align-items:center !important;
+            justify-content:center !important;
+
+            cursor:pointer;
+
+            vertical-align:middle;
+        }
+
+        #nav > button:first-of-type:hover{
+            background:white !important;
+            color:#0b2e73 !important;
+        }
+
+
+        /* ========================= */
+        /* DARK MODE */
+        /* ========================= */
+
+        .dark h1{
+            color:white;
+        }
+
+        .dark .notice-box{
+            background:white;
+            color:#333;
+        }
+
+        .dark .dashboard{
+            color:white;
+        }
+
+        .dark footer{
+            background:#000;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+
+<div class="header">
+
+    <h2>🎓 StudentHub</h2>
+
+    <div id="nav">
+
+        <a href="login.html">Login</a>
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <button onclick="toggleTheme()">🌙</button>
+
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="container">
+
+    <h1>Notice Board</h1>
+
+    <div class="line"></div>
+
+
+    <div class="notice-box">
+        🔔 &nbsp; Semester starts on July 20
+
+        <button onclick="this.parentElement.style.display='none'">
+            X
+        </button>
+    </div>
+
+
+    <div class="notice-box">
+        📢 &nbsp; Assignment Due Friday
+
+        <button onclick="this.parentElement.style.display='none'">
+            X
+        </button>
+    </div>
+
+
+    <div class="notice-box">
+        📅 &nbsp; Exam Schedule Released
+
+        <button onclick="this.parentElement.style.display='none'">
+            X
+        </button>
+    </div>
+
+
+    
+
+    <a href="dashboard.html" class="dashboard">
+        ← Back to Dashboard
+    </a>
+
+</div>
+
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All Rights Reserved.
+
+</footer>
+
+
+<script src="notices.js"></script>
+
+</body>
+
+</html>
