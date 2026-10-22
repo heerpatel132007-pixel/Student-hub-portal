@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Events</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef3ff;
+        }
+
+        .header{
+            background:#0b2e73;
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 40px;
+        }
+
+        .header h2{
+            margin:0;
+            font-size:28px;
+        }
+
+        .header a{
+            color:white;
+            text-decoration:none;
+            border:2px solid white;
+            padding:8px 18px;
+            border-radius:5px;
+            margin-left:10px;
+        }
+
+        .header a:hover{
+            background:white;
+            color:#0b2e73;
+        }
+
+        #themeButton{
+            width:50px;
+            height:50px;
+            margin-left:15px;
+            border:none;
+            border-radius:50%;
+            background:white;
+            font-size:25px;
+            cursor:pointer;
+            vertical-align:middle;
+        }
+
+        .container{
+            width:80%;
+            max-width:800px;
+            margin:45px auto;
+            text-align:center;
+        }
+
+        h1{
+            color:#0b2e73;
+            font-size:38px;
+            margin-bottom:10px;
+        }
+
+        .line{
+            width:70px;
+            height:4px;
+            background:#1976e8;
+            margin:0 auto 30px;
+            border-radius:5px;
+        }
+
+        .id-box{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 3px 12px #ccc;
+            text-align:left;
+        }
+
+        .id-box label{
+            display:block;
+            color:#0b2e73;
+            font-weight:bold;
+            margin-bottom:7px;
+        }
+
+        .id-box input{
+            width:100%;
+            padding:12px;
+            box-sizing:border-box;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:15px;
+        }
+
+        .event-card{
+            background:white;
+            padding:20px 25px;
+            margin-top:20px;
+            border-radius:10px;
+            box-shadow:0 3px 10px #ccc;
+            border-left:6px solid #7e57c2;
+            text-align:left;
+        }
+
+        .event-card h3{
+            margin:0 0 8px;
+            color:#0b2e73;
+        }
+
+        .event-card p{
+            margin:5px 0;
+            color:#555;
+        }
+
+        .event-card button{
+            margin-top:10px;
+            background:#1976e8;
+            color:white;
+            border:none;
+            padding:10px 28px;
+            border-radius:6px;
+            font-size:15px;
+            cursor:pointer;
+        }
+
+        .event-card button:hover{
+            background:#0b2e73;
+        }
+
+        .event-card button:disabled{
+            opacity:0.5;
+            cursor:default;
+        }
+
+        .dashboard{
+            display:inline-block;
+            margin-top:30px;
+            background:#1976e8;
+            color:white;
+            text-decoration:none;
+            padding:12px 30px;
+            border-radius:6px;
+        }
+
+        .dashboard:hover{
+            background:#0b2e73;
+        }
+
+        footer{
+            background:#0b2e73;
+            color:white;
+            text-align:center;
+            padding:18px;
+            margin-top:50px;
+        }
+
+        /* DataList helper styles (same as contact page) */
+
+        .dl-toolbar{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            justify-content:center;
+            margin:20px auto;
+        }
+
+        .dl-toolbar input,
+        .dl-toolbar select{
+            padding:10px 12px;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:15px;
+            background:white;
+            color:#222;
+            box-sizing:border-box;
+        }
+
+        .dl-toolbar input{
+            flex:1;
+            min-width:160px;
+        }
+
+        .dl-msg{
+            color:#555;
+            padding:20px;
+            text-align:center;
+        }
+
+        .dl-pager{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        .dl-pager button{
+            margin:3px;
+            padding:8px 14px;
+            border:none;
+            border-radius:6px;
+            background:#1976e8;
+            color:white;
+            font-size:15px;
+            cursor:pointer;
+        }
+
+        .dl-pager button.active{
+            background:#073b8c;
+        }
+
+        .dl-pager button:disabled{
+            opacity:0.5;
+            cursor:default;
+        }
+
+        .dl-info{
+            display:block;
+            margin-top:10px;
+            font-size:14px;
+            color:#555;
+        }
+
+        .form-msg{
+            display:none;
+            margin-top:15px;
+            padding:12px 15px;
+            border-radius:6px;
+            font-size:15px;
+            text-align:left;
+        }
+
+        .form-msg.success{
+            display:block;
+            background:#e6f6ea;
+            color:#1b6b34;
+            border:1px solid #43a047;
+        }
+
+        .form-msg.error{
+            display:block;
+            background:#fdeaea;
+            color:#a12622;
+            border:1px solid #e53935;
+        }
+
+        /* Dark Mode */
+
+        .dark{
+            background:#222;
+            color:white;
+        }
+
+        .dark .header{
+            background:#000;
+        }
+
+        .dark h1{
+            color:white;
+        }
+
+        .dark footer{
+            background:#000;
+        }
+
+        .dark .dl-info,
+        .dark .dl-msg{
+            color:#ddd;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="header">
+
+    <h2>🎓 StudentHub</h2>
+
+    <span>
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <button id="themeButton" onclick="toggleTheme()">🌙</button>
+
+    </span>
+
+</div>
+
+
+<div class="container">
+
+    <h1>Events</h1>
+
+    <div class="line"></div>
+
+    <div class="id-box">
+
+        <label>Your Student ID</label>
+
+        <input type="text" id="studentCode" placeholder="Example: ST1001">
+
+        <div id="eventMessage" class="form-msg"></div>
+
+    </div>
+
+    <div class="dl-toolbar">
+        <input type="text" id="event-search" placeholder="Search events...">
+        <select id="event-filter"><option value="all">All Locations</option></select>
+        <select id="event-sort">
+            <option value="event_date:asc">Date (earliest)</option>
+            <option value="event_date:desc">Date (latest)</option>
+            <option value="title:asc">Title (A-Z)</option>
+        </select>
+    </div>
+
+    <div id="event-list"></div>
+
+    <div class="dl-pager" id="event-pager"></div>
+
+    <a href="dashboard.html" class="dashboard">← Back to Dashboard</a>
+
+</div>
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All Rights Reserved.
+
+</footer>
+
+
+<script src="../js/datalist.js"></script>
+<script src="../js/events.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Admin Dashboard</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef4ff;
+        }
+
+        .header{
+            background:#0b2e73;
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 40px;
+        }
+
+        .header h2{
+            margin:0;
+            font-size:30px;
+        }
+
+        #themeButton{
+            width:50px;
+            height:45px;
+            margin-left:15px;
+            border:0;
+            border-radius:50%;
+            background:white;
+            font-size:25px;
+            cursor:pointer;
+        }
+
+        #logoutBtn{
+            margin-left:10px;
+            padding:10px 22px;
+            border:0;
+            border-radius:6px;
+            background:#d32f2f;
+            color:white;
+            font-size:15px;
+            cursor:pointer;
+        }
+
+        #logoutBtn:hover{
+            background:#a12622;
+        }
+
+        .container{
+            width:90%;
+            max-width:1000px;
+            margin:40px auto;
+        }
+
+        .container h1{
+            color:#0b2e73;
+            text-align:center;
+            font-size:38px;
+        }
+
+        .welcome{
+            background:white;
+            border-left:5px solid #d32f2f;
+            border-radius:8px;
+            box-shadow:0 3px 10px #ccc;
+            padding:15px 20px;
+            margin-bottom:20px;
+            color:#222;
+        }
+
+        .welcome h2{
+            margin:0 0 8px;
+            color:#0b2e73;
+        }
+
+        .welcome p{
+            margin:5px 0;
+            font-size:14px;
+            color:#444;
+        }
+
+        .role-badge{
+            background:#fde1e1;
+            color:#a12622;
+            padding:2px 8px;
+            border-radius:10px;
+            font-size:12px;
+            text-transform:capitalize;
+        }
+
+        .status-cards{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+            margin-bottom:25px;
+        }
+
+        .status-card{
+            flex:1;
+            min-width:200px;
+            background:white;
+            border-top:4px solid #d32f2f;
+            border-radius:8px;
+            box-shadow:0 3px 10px #ccc;
+            padding:15px 20px;
+            color:#222;
+        }
+
+        .status-card span{
+            display:block;
+            font-size:13px;
+            color:#555;
+        }
+
+        .status-card b{
+            display:block;
+            font-size:22px;
+            color:#0b2e73;
+            margin:6px 0;
+        }
+
+        .status-card small{
+            color:#777;
+        }
+
+        h3.section{
+            color:#0b2e73;
+        }
+
+        .dl-toolbar{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            margin:15px 0;
+        }
+
+        .dl-toolbar input,
+        .dl-toolbar select{
+            padding:10px 12px;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:15px;
+            background:white;
+            color:#222;
+        }
+
+        .dl-toolbar input{
+            flex:1;
+            min-width:160px;
+        }
+
+        .user-row{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            gap:10px;
+            background:white;
+            border-radius:8px;
+            box-shadow:0 3px 10px #ccc;
+            padding:14px 20px;
+            margin-bottom:10px;
+            color:#222;
+            font-size:14px;
+        }
+
+        .user-row b{
+            color:#0b2e73;
+        }
+
+        .dl-msg{
+            color:#555;
+            padding:20px;
+            text-align:center;
+        }
+
+        .dl-pager{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        .dl-pager button{
+            margin:3px;
+            padding:8px 14px;
+            border:none;
+            border-radius:6px;
+            background:#1976e8;
+            color:white;
+            cursor:pointer;
+        }
+
+        .dl-pager button.active{
+            background:#073b8c;
+        }
+
+        .dl-pager button:disabled{
+            opacity:0.5;
+            cursor:default;
+        }
+
+        .dl-info{
+            display:block;
+            margin-top:10px;
+            font-size:14px;
+            color:#555;
+        }
+
+        footer{
+            background:#0b2e73;
+            color:white;
+            text-align:center;
+            padding:18px;
+            margin-top:50px;
+        }
+
+        .dark{
+            background:#222;
+            color:white;
+        }
+
+        .dark .header,
+        .dark footer{
+            background:#000;
+        }
+
+        .dark .container h1{
+            color:white;
+        }
+
+        .dark .dl-info{
+            color:#ddd;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="header">
+
+    <h2>🎓 StudentHub Admin</h2>
+
+    <div id="nav">
+
+        <button id="themeButton" onclick="toggleTheme()">🌙</button>
+
+        <button id="logoutBtn" onclick="logout()">Logout</button>
+
+    </div>
+
+</div>
+
+
+<div class="container">
+
+    <h1>Admin Dashboard</h1>
+
+    <div class="welcome">
+
+        <h2>Welcome, <span id="welcomeName">...</span>!</h2>
+
+        <p>Student ID: <b id="welcomeId"></b> |
+           Email: <span id="welcomeEmail"></span> |
+           Role: <span class="role-badge" id="welcomeRole"></span></p>
+
+        <p>Last login: <span id="welcomeLast"></span></p>
+
+    </div>
+
+    <div class="status-cards">
+
+        <div class="status-card">
+            <span>Session Status</span>
+            <b>Active &amp; Secure</b>
+            <small>Session ID regenerated after login</small>
+        </div>
+
+        <div class="status-card">
+            <span>Session Timeout Limit</span>
+            <b id="timeoutText">15 Mins</b>
+            <small>Auto-logout after inactivity</small>
+        </div>
+
+        <div class="status-card">
+            <span>Role-Based Access</span>
+            <b>Admin View</b>
+            <small>Only admins can open this page</small>
+        </div>
+
+    </div>
+
+    <h3 class="section">Registered Users</h3>
+
+    <div class="dl-toolbar">
+        <input type="text" id="user-search" placeholder="Search users...">
+        <select id="user-filter"><option value="all">All Roles</option></select>
+        <select id="user-sort">
+            <option value="id:asc">Default order</option>
+            <option value="name:asc">Name (A-Z)</option>
+            <option value="name:desc">Name (Z-A)</option>
+        </select>
+    </div>
+
+    <div id="user-list"></div>
+
+    <div class="dl-pager" id="user-pager"></div>
+
+</div>
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All rights reserved.
+
+</footer>
+
+
+<script src="../js/datalist.js"></script>
+<script src="../js/admin.js"></script>
+
+</body>
+
+</html>
