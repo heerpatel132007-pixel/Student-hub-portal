@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Manage Students</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef4ff;
+        }
+
+        .header{
+            background:#0b2e73;
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 40px;
+        }
+
+        .header h2{
+            margin:0;
+            font-size:28px;
+        }
+
+        .header a{
+            color:white;
+            text-decoration:none;
+            border:1px solid white;
+            padding:10px 22px;
+            border-radius:6px;
+        }
+
+        .header a:hover{
+            background:white;
+            color:#0b2e73;
+        }
+
+        #themeButton{
+            width:50px;
+            height:45px;
+            margin-left:15px;
+            border:0;
+            border-radius:50%;
+            background:white;
+            font-size:25px;
+            cursor:pointer;
+            vertical-align:middle;
+        }
+
+        #logoutBtn{
+            margin-left:10px;
+            padding:10px 22px;
+            border:0;
+            border-radius:6px;
+            background:#d32f2f;
+            color:white;
+            font-size:15px;
+            cursor:pointer;
+        }
+
+        .container{
+            width:92%;
+            max-width:1150px;
+            margin:35px auto;
+        }
+
+        .container h1{
+            color:#0b2e73;
+            text-align:center;
+            font-size:36px;
+            margin-bottom:20px;
+        }
+
+        /* Messages */
+
+        .msg{
+            display:none;
+            padding:13px 18px;
+            border-radius:6px;
+            margin-bottom:18px;
+            font-size:15px;
+        }
+
+        .msg.success{
+            display:block;
+            background:#e6f6ea;
+            color:#1b6b34;
+            border-left:5px solid #43a047;
+        }
+
+        .msg.error{
+            display:block;
+            background:#fdeaea;
+            color:#a12622;
+            border-left:5px solid #e53935;
+        }
+
+        /* Search / filter bar */
+
+        .toolbar{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            margin-bottom:18px;
+        }
+
+        .toolbar input,
+        .toolbar select{
+            padding:11px 12px;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:15px;
+            background:white;
+            color:#222;
+        }
+
+        .toolbar input{
+            flex:1;
+            min-width:220px;
+        }
+
+        .btn{
+            background:#1976e8;
+            color:white;
+            border:0;
+            border-radius:6px;
+            padding:11px 22px;
+            font-size:15px;
+            cursor:pointer;
+        }
+
+        .btn:hover{
+            background:#0b2e73;
+        }
+
+        .btn.gray{
+            background:#6c757d;
+        }
+
+        .btn.red{
+            background:#d32f2f;
+        }
+
+        /* Table */
+
+        .table-wrap{
+            overflow-x:auto;
+            background:white;
+            border-radius:8px;
+            box-shadow:0 3px 12px #ccc;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#1565c0;
+            color:white;
+            padding:13px 12px;
+            text-align:left;
+            font-size:15px;
+            white-space:nowrap;
+        }
+
+        td{
+            padding:12px;
+            border-bottom:1px solid #e3e3e3;
+            color:#333;
+            font-size:14px;
+        }
+
+        tr:nth-child(even) td{
+            background:#f0f6ff;
+        }
+
+        .badge{
+            display:inline-block;
+            padding:2px 9px;
+            border-radius:10px;
+            font-size:12px;
+            background:#e3f0ff;
+            color:#0b2e73;
+        }
+
+        .badge.admin{
+            background:#fde1e1;
+            color:#a12622;
+        }
+
+        .actions button{
+            border:0;
+            border-radius:5px;
+            padding:6px 12px;
+            margin-right:4px;
+            font-size:13px;
+            color:white;
+            cursor:pointer;
+        }
+
+        .actions .edit{
+            background:#1976e8;
+        }
+
+        .actions .del{
+            background:#d32f2f;
+        }
+
+        .empty{
+            text-align:center;
+            color:#555;
+            padding:25px;
+        }
+
+        /* Pager */
+
+        .pager{
+            text-align:center;
+            margin-top:18px;
+        }
+
+        .pager button{
+            margin:3px;
+            padding:8px 14px;
+            border:0;
+            border-radius:6px;
+            background:#1976e8;
+            color:white;
+            cursor:pointer;
+        }
+
+        .pager button.active{
+            background:#073b8c;
+        }
+
+        .pager button:disabled{
+            opacity:0.5;
+            cursor:default;
+        }
+
+        .info{
+            display:block;
+            margin-top:10px;
+            font-size:14px;
+            color:#555;
+        }
+
+        .back{
+            display:inline-block;
+            margin-top:25px;
+            color:#1565c0;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        /* Pop-up forms */
+
+        .modal{
+            display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.6);
+            overflow-y:auto;
+        }
+
+        .modal-box{
+            background:white;
+            width:90%;
+            max-width:560px;
+            margin:40px auto;
+            padding:25px 30px;
+            border-radius:10px;
+            color:#222;
+        }
+
+        .modal-box h2{
+            margin-top:0;
+            color:#0b2e73;
+        }
+
+        .modal-box label{
+            display:block;
+            color:#0b2e73;
+            font-weight:bold;
+            margin:12px 0 5px;
+            font-size:14px;
+        }
+
+        .modal-box input,
+        .modal-box select,
+        .modal-box textarea{
+            width:100%;
+            padding:10px;
+            box-sizing:border-box;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:14px;
+            font-family:Arial, sans-serif;
+        }
+
+        .modal-box textarea{
+            resize:none;
+        }
+
+        .row{
+            display:flex;
+            gap:12px;
+        }
+
+        .row > div{
+            flex:1;
+        }
+
+        .err{
+            color:red;
+            font-size:12px;
+            margin-top:3px;
+            min-height:14px;
+        }
+
+        .hint{
+            font-size:12px;
+            color:#777;
+        }
+
+        .modal-buttons{
+            text-align:right;
+            margin-top:20px;
+        }
+
+        .modal-buttons .btn{
+            margin-left:8px;
+        }
+
+        footer{
+            background:#0b2e73;
+            color:white;
+            text-align:center;
+            padding:18px;
+            margin-top:40px;
+        }
+
+        .dark{
+            background:#222;
+            color:white;
+        }
+
+        .dark .header,
+        .dark footer{
+            background:#000;
+        }
+
+        .dark .container h1,
+        .dark .info{
+            color:white;
+        }
+
+        .dark .back{
+            color:#8ab8ff;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="header">
+
+    <h2>🎓 StudentHub Admin</h2>
+
+    <div>
+
+        <a href="../php/admin.php">Admin Home</a>
+
+        <button id="themeButton" onclick="toggleTheme()">🌙</button>
+
+        <button id="logoutBtn" onclick="logout()">Logout</button>
+
+    </div>
+
+</div>
+
+
+<div class="container">
+
+    <h1>Student Management</h1>
+
+    <div id="pageMessage" class="msg"></div>
+
+    <div class="toolbar">
+
+        <input type="text" id="searchBox" placeholder="Search by name, student ID or email...">
+
+        <select id="courseFilter"><option value="">All Courses</option></select>
+
+        <select id="yearFilter"><option value="">All Years</option></select>
+
+        <select id="roleFilter"><option value="">All Roles</option></select>
+
+        <select id="sortBy"></select>
+
+        <button class="btn gray" onclick="resetFilters()">Reset</button>
+
+        <button class="btn" onclick="openAdd()">+ Add Student</button>
+
+    </div>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Course</th>
+                    <th>Year</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="studentRows">
+                <tr><td colspan="8" class="empty">Loading...</td></tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="pager" id="pager"></div>
+
+    <a href="../php/admin.php" class="back">← Back to Admin Dashboard</a>
+
+</div>
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All rights reserved.
+
+</footer>
+
+
+<!-- Add / Edit form -->
+
+<div class="modal" id="formModal">
+
+    <div class="modal-box">
+
+        <h2 id="formTitle">Add Student</h2>
+
+        <div id="formMessage" class="msg"></div>
+
+        <input type="hidden" id="f_id">
+
+        <div class="row">
+
+            <div>
+                <label>Student ID</label>
+                <input type="text" id="f_studentId" placeholder="Example: ST1012">
+                <div class="err" id="e_studentId"></div>
+            </div>
+
+            <div>
+                <label>Name</label>
+                <input type="text" id="f_name" placeholder="Full name">
+                <div class="err" id="e_name"></div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div>
+                <label>Course</label>
+                <select id="f_course"><option value="">Select course</option></select>
+                <div class="err" id="e_course"></div>
+            </div>
+
+            <div>
+                <label>Year</label>
+                <select id="f_year"><option value="">Select year</option></select>
+                <div class="err" id="e_year"></div>
+            </div>
+
+            <div>
+                <label>Semester</label>
+                <input type="number" id="f_semester" placeholder="1-8">
+                <div class="err" id="e_semester"></div>
+            </div>
+
+        </div>
+
+        <label>Email</label>
+        <input type="text" id="f_email" placeholder="name@example.com">
+        <div class="err" id="e_email"></div>
+
+        <div class="row">
+
+            <div>
+                <label>Mobile</label>
+                <input type="text" id="f_mobile" placeholder="10-digit number">
+                <div class="err" id="e_mobile"></div>
+            </div>
+
+            <div>
+                <label>Gender</label>
+                <select id="f_gender"><option value="">Select gender</option></select>
+                <div class="err" id="e_gender"></div>
+            </div>
+
+            <div>
+                <label>Role</label>
+                <select id="f_role"></select>
+                <div class="err" id="e_role"></div>
+            </div>
+
+        </div>
+
+        <label>Address</label>
+        <textarea id="f_address" rows="2" placeholder="Address"></textarea>
+
+        <label>Password</label>
+        <input type="password" id="f_password" placeholder="Password">
+        <div class="hint" id="passwordHint"></div>
+        <div class="err" id="e_password"></div>
+
+        <div class="modal-buttons">
+            <button class="btn gray" onclick="closeForm()">Cancel</button>
+            <button class="btn" id="saveBtn" onclick="saveStudent()">Save</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Delete confirmation -->
+
+<div class="modal" id="deleteModal">
+
+    <div class="modal-box" style="max-width:420px;text-align:center;">
+
+        <h2>Delete Student?</h2>
+
+        <p id="deleteText"></p>
+
+        <p class="hint">Their event registrations will also be removed.</p>
+
+        <div class="modal-buttons" style="text-align:center;">
+            <button class="btn gray" onclick="closeDelete()">Cancel</button>
+            <button class="btn red" onclick="doDelete()">Yes, Delete</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="../js/manage_students.js"></script>
+
+</body>
+
+</html>

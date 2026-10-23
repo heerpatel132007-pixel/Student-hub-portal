@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Admin Dashboard</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef4ff;
+        }
+
+        .header{
+            background:#0b2e73;
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 40px;
+        }
+
+        .header h2{
+            margin:0;
+            font-size:30px;
+        }
+
+        #themeButton{
+            width:50px;
+            height:45px;
+            margin-left:15px;
+            border:0;
+            border-radius:50%;
+            background:white;
+            font-size:25px;
+            cursor:pointer;
+        }
+
+        #logoutBtn{
+            margin-left:10px;
+            padding:10px 22px;
+            border:0;
+            border-radius:6px;
+            background:#d32f2f;
+            color:white;
+            font-size:15px;
+            cursor:pointer;
+        }
+
+        #logoutBtn:hover{
+            background:#a12622;
+        }
+
+        .container{
+            width:90%;
+            max-width:1000px;
+            margin:40px auto;
+        }
+
+        .container h1{
+            color:#0b2e73;
+            text-align:center;
+            font-size:38px;
+        }
+
+        .welcome{
+            background:white;
+            border-left:5px solid #d32f2f;
+            border-radius:8px;
+            box-shadow:0 3px 10px #ccc;
+            padding:15px 20px;
+            margin-bottom:20px;
+            color:#222;
+        }
+
+        .welcome h2{
+            margin:0 0 8px;
+            color:#0b2e73;
+        }
+
+        .welcome p{
+            margin:5px 0;
+            font-size:14px;
+            color:#444;
+        }
+
+        .role-badge{
+            background:#fde1e1;
+            color:#a12622;
+            padding:2px 8px;
+            border-radius:10px;
+            font-size:12px;
+            text-transform:capitalize;
+        }
+
+        .status-cards{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+            margin-bottom:25px;
+        }
+
+        .status-card{
+            flex:1;
+            min-width:200px;
+            background:white;
+            border-top:4px solid #d32f2f;
+            border-radius:8px;
+            box-shadow:0 3px 10px #ccc;
+            padding:15px 20px;
+            color:#222;
+        }
+
+        .status-card span{
+            display:block;
+            font-size:13px;
+            color:#555;
+        }
+
+        .status-card b{
+            display:block;
+            font-size:22px;
+            color:#0b2e73;
+            margin:6px 0;
+        }
+
+        .status-card small{
+            color:#777;
+        }
+
+        .manage-btn{
+            display:inline-block;
+            background:#1976e8;
+            color:white;
+            text-decoration:none;
+            padding:12px 26px;
+            border-radius:6px;
+            font-size:16px;
+            margin-bottom:10px;
+        }
+
+        .manage-btn{
+            margin-left:8px;
+        }
+
+        .manage-btn:hover{
+            background:#0b2e73;
+        }
+
+        h3.section{
+            color:#0b2e73;
+        }
+
+        .dl-toolbar{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            margin:15px 0;
+        }
+
+        .dl-toolbar input,
+        .dl-toolbar select{
+            padding:10px 12px;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:15px;
+            background:white;
+            color:#222;
+        }
+
+        .dl-toolbar input{
+            flex:1;
+            min-width:160px;
+        }
+
+        .user-row{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            gap:10px;
+            background:white;
+            border-radius:8px;
+            box-shadow:0 3px 10px #ccc;
+            padding:14px 20px;
+            margin-bottom:10px;
+            color:#222;
+            font-size:14px;
+        }
+
+        .user-row b{
+            color:#0b2e73;
+        }
+
+        .dl-msg{
+            color:#555;
+            padding:20px;
+            text-align:center;
+        }
+
+        .dl-pager{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        .dl-pager button{
+            margin:3px;
+            padding:8px 14px;
+            border:none;
+            border-radius:6px;
+            background:#1976e8;
+            color:white;
+            cursor:pointer;
+        }
+
+        .dl-pager button.active{
+            background:#073b8c;
+        }
+
+        .dl-pager button:disabled{
+            opacity:0.5;
+            cursor:default;
+        }
+
+        .dl-info{
+            display:block;
+            margin-top:10px;
+            font-size:14px;
+            color:#555;
+        }
+
+        footer{
+            background:#0b2e73;
+            color:white;
+            text-align:center;
+            padding:18px;
+            margin-top:50px;
+        }
+
+        .dark{
+            background:#222;
+            color:white;
+        }
+
+        .dark .header,
+        .dark footer{
+            background:#000;
+        }
+
+        .dark .container h1{
+            color:white;
+        }
+
+        .dark .dl-info{
+            color:#ddd;
+        }
+
+
+        /* Role menu */
+
+        .rolemenu{
+            background:#14408f;
+            display:flex;
+            flex-wrap:wrap;
+            gap:6px;
+            padding:8px 40px;
+        }
+
+        .rolemenu a{
+            color:white;
+            text-decoration:none;
+            padding:8px 14px;
+            border-radius:6px;
+            font-size:14px;
+        }
+
+        .rolemenu a:hover{
+            background:rgba(255,255,255,0.18);
+        }
+
+        .rolemenu a.active{
+            background:white;
+            color:#0b2e73;
+            font-weight:bold;
+        }
+
+        .menu-role{
+            margin-left:auto;
+            align-self:center;
+            color:#cfe0ff;
+            font-size:12px;
+            text-transform:uppercase;
+        }
+
+        .dark .rolemenu{
+            background:#111;
+        }
+
+        /* Statistics */
+
+        .section-head{
+            display:flex;
+            align-items:center;
+            gap:12px;
+            margin:25px 0 10px;
+        }
+
+        .section-head h3{
+            margin:0;
+            color:#0b2e73;
+        }
+
+        .section-head .hint{
+            margin-left:auto;
+            font-size:12px;
+            color:#777;
+        }
+
+        .refresh{
+            background:#1976e8;
+            color:white;
+            border:0;
+            border-radius:6px;
+            padding:7px 14px;
+            font-size:13px;
+            cursor:pointer;
+        }
+
+        .stat-grid{
+            display:grid;
+            grid-template-columns:repeat(4, 1fr);
+            gap:15px;
+            margin-bottom:20px;
+        }
+
+        @media(max-width:850px){
+            .stat-grid{
+                grid-template-columns:repeat(2, 1fr);
+            }
+        }
+
+        .stat-card{
+            background:white;
+            border-radius:10px;
+            box-shadow:0 3px 10px #ccc;
+            padding:15px 18px;
+            border-top:4px solid #1976e8;
+            color:#222;
+        }
+
+        .stat-card span{
+            display:block;
+            font-size:13px;
+            color:#555;
+        }
+
+        .stat-card b{
+            display:block;
+            font-size:32px;
+            color:#0b2e73;
+            margin:4px 0;
+        }
+
+        .stat-card small{
+            color:#777;
+            font-size:12px;
+        }
+
+        .stat-card.green{ border-top-color:#43a047; }
+        .stat-card.orange{ border-top-color:#fb8c00; }
+        .stat-card.purple{ border-top-color:#7e57c2; }
+        .stat-card.red{ border-top-color:#d32f2f; }
+        .stat-card.teal{ border-top-color:#00acc1; }
+
+        .grid2{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+            align-items:flex-start;
+        }
+
+        .grid2 > div{
+            flex:1;
+            min-width:300px;
+        }
+
+        .panel{
+            background:white;
+            border-radius:10px;
+            box-shadow:0 3px 10px #ccc;
+            padding:15px 20px;
+            margin-bottom:20px;
+            color:#222;
+        }
+
+        .panel h3{
+            margin:0 0 12px;
+            color:#0b2e73;
+            font-size:17px;
+        }
+
+        .bar-row{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            margin-bottom:9px;
+            font-size:13px;
+        }
+
+        .bar-label{
+            width:150px;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+        }
+
+        .bar-track{
+            flex:1;
+            background:#e8eefb;
+            border-radius:5px;
+            height:16px;
+        }
+
+        .bar-fill{
+            background:#1976e8;
+            height:16px;
+            border-radius:5px;
+        }
+
+        .bar-value{
+            width:70px;
+            text-align:right;
+            color:#555;
+        }
+
+        table.latest{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        table.latest th{
+            background:#1565c0;
+            color:white;
+            text-align:left;
+            padding:10px;
+            font-size:13px;
+        }
+
+        table.latest td{
+            padding:10px;
+            border-bottom:1px solid #e3e3e3;
+            font-size:13px;
+        }
+
+        table.latest tr:nth-child(even) td{
+            background:#f0f6ff;
+        }
+
+        .dark .section-head .hint{
+            color:#bbb;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="header">
+
+    <h2>🎓 StudentHub Admin</h2>
+
+    <div id="nav">
+
+        <button id="themeButton" onclick="toggleTheme()">🌙</button>
+
+        <button id="logoutBtn" onclick="logout()">Logout</button>
+
+    </div>
+
+</div>
+
+
+<div class="rolemenu" id="roleMenu"></div>
+
+
+<div class="container">
+
+    <h1>Admin Dashboard</h1>
+
+    <div class="welcome">
+
+        <h2>Welcome, <span id="welcomeName">...</span>!</h2>
+
+        <p>Student ID: <b id="welcomeId"></b> |
+           Email: <span id="welcomeEmail"></span> |
+           Role: <span class="role-badge" id="welcomeRole"></span></p>
+
+        <p>Last login: <span id="welcomeLast"></span></p>
+
+    </div>
+
+    <div class="status-cards">
+
+        <div class="status-card">
+            <span>Session Status</span>
+            <b>Active &amp; Secure</b>
+            <small>Session ID regenerated after login</small>
+        </div>
+
+        <div class="status-card">
+            <span>Session Timeout Limit</span>
+            <b id="timeoutText">15 Mins</b>
+            <small>Auto-logout after inactivity</small>
+        </div>
+
+        <div class="status-card">
+            <span>Role-Based Access</span>
+            <b>Admin View</b>
+            <small>Only admins can open this page</small>
+        </div>
+
+    </div>
+
+    <div class="section-head">
+
+        <h3>Statistics</h3>
+
+        <span class="hint" id="statsTime"></span>
+
+        <button class="refresh" onclick="loadStats()">⟳ Refresh</button>
+
+    </div>
+
+    <div class="stat-grid" id="statGrid">
+        <div class="stat-card"><span>Loading statistics...</span></div>
+    </div>
+
+    <div class="grid2">
+
+        <div class="panel">
+
+            <h3>Students per course</h3>
+
+            <div id="courseBars"></div>
+
+        </div>
+
+        <div class="panel">
+
+            <h3>Most popular events</h3>
+
+            <div id="eventBars"></div>
+
+        </div>
+
+    </div>
+
+    <div class="panel">
+
+        <h3>Latest registrations</h3>
+
+        <div style="overflow-x:auto;">
+
+            <table class="latest">
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Student</th>
+                        <th>Student ID</th>
+                        <th>Course</th>
+                        <th>Event</th>
+                        <th>Registered at</th>
+                    </tr>
+                </thead>
+
+                <tbody id="latestRows">
+                    <tr><td colspan="6">Loading...</td></tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <a href="../php/manage_students.php" class="manage-btn">👥 Manage Students (add, edit, delete, search)</a>
+
+    <a href="../php/manage_events.php" class="manage-btn">🎉 Manage Events (add, edit, delete, posters)</a>
+
+    <a href="../php/api_demo.php" class="manage-btn">⚡ JSON API + Fetch Demo (events)</a>
+
+    <h3 class="section">Registered Users</h3>
+
+    <div class="dl-toolbar">
+        <input type="text" id="user-search" placeholder="Search users...">
+        <select id="user-filter"><option value="all">All Roles</option></select>
+        <select id="user-sort">
+            <option value="id:asc">Default order</option>
+            <option value="name:asc">Name (A-Z)</option>
+            <option value="name:desc">Name (Z-A)</option>
+        </select>
+    </div>
+
+    <div id="user-list"></div>
+
+    <div class="dl-pager" id="user-pager"></div>
+
+</div>
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All rights reserved.
+
+</footer>
+
+
+<script src="../js/datalist.js"></script>
+<script src="../js/admin.js"></script>
+<script src="../js/menu.js"></script>
+
+</body>
+
+</html>

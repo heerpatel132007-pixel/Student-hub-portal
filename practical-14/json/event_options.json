@@ -1,0 +1,46 @@
+{
+  "maxPosterMB": 2,
+  "allowedTypes": [
+    "image/jpeg",
+    "image/png",
+    "image/webp"
+  ],
+  "allowedExtensions": [
+    "jpg",
+    "jpeg",
+    "png",
+    "webp"
+  ],
+  "when": [
+    {
+      "value": "upcoming",
+      "label": "Upcoming"
+    },
+    {
+      "value": "past",
+      "label": "Past"
+    }
+  ],
+  "sorts": [
+    {
+      "value": "date:asc",
+      "label": "Date (earliest)"
+    },
+    {
+      "value": "date:desc",
+      "label": "Date (latest)"
+    },
+    {
+      "value": "title:asc",
+      "label": "Title (A-Z)"
+    },
+    {
+      "value": "seats:desc",
+      "label": "Most seats"
+    },
+    {
+      "value": "id:desc",
+      "label": "Newest first"
+    }
+  ]
+}

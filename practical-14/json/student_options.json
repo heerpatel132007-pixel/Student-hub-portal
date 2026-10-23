@@ -1,0 +1,61 @@
+{
+  "courses": [
+    {
+      "code": "CSE",
+      "name": "Computer Science Engineering"
+    },
+    {
+      "code": "IT",
+      "name": "Information Technology"
+    },
+    {
+      "code": "CE",
+      "name": "Computer Engineering"
+    },
+    {
+      "code": "DS",
+      "name": "Data Science"
+    }
+  ],
+  "years": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "genders": [
+    "Male",
+    "Female",
+    "Other"
+  ],
+  "roles": [
+    "student",
+    "admin"
+  ],
+  "sorts": [
+    {
+      "value": "id:asc",
+      "label": "Default order"
+    },
+    {
+      "value": "id:desc",
+      "label": "Newest first"
+    },
+    {
+      "value": "name:asc",
+      "label": "Name (A-Z)"
+    },
+    {
+      "value": "name:desc",
+      "label": "Name (Z-A)"
+    },
+    {
+      "value": "course:asc",
+      "label": "Course"
+    },
+    {
+      "value": "year:asc",
+      "label": "Year"
+    }
+  ]
+}
