@@ -1,0 +1,13 @@
+[
+  { "id": 1, "name": "Aarav Patel", "studentId": "ST1001", "course": "CSE", "year": 2, "email": "aarav.patel@example.com" },
+  { "id": 2, "name": "Diya Shah", "studentId": "ST1002", "course": "IT", "year": 1, "email": "diya.shah@example.com" },
+  { "id": 3, "name": "Rohan Mehta", "studentId": "ST1003", "course": "CE", "year": 3, "email": "rohan.mehta@example.com" },
+  { "id": 4, "name": "Isha Desai", "studentId": "ST1004", "course": "DS", "year": 4, "email": "isha.desai@example.com" },
+  { "id": 5, "name": "Karan Joshi", "studentId": "ST1005", "course": "CSE", "year": 3, "email": "karan.joshi@example.com" },
+  { "id": 6, "name": "Meera Trivedi", "studentId": "ST1006", "course": "IT", "year": 2, "email": "meera.trivedi@example.com" },
+  { "id": 7, "name": "Neel Parmar", "studentId": "ST1007", "course": "DS", "year": 1, "email": "neel.parmar@example.com" },
+  { "id": 8, "name": "Priya Nair", "studentId": "ST1008", "course": "CE", "year": 4, "email": "priya.nair@example.com" },
+  { "id": 9, "name": "Yash Vyas", "studentId": "ST1009", "course": "CSE", "year": 1, "email": "yash.vyas@example.com" },
+  { "id": 10, "name": "Sneha Kapoor", "studentId": "ST1010", "course": "IT", "year": 3, "email": "sneha.kapoor@example.com" },
+  { "id": 11, "name": "Heer Patel", "studentId": "ST1011", "course": "CSE", "year": 2, "email": "heer.patel@example.com" }
+]
