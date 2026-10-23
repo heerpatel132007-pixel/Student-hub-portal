@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Courses</title>
+
+    <style>
+
+        
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef5ff;
+        }
+
+        
+        .header{
+            background:#073b8c;
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 50px;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        .menu a{
+            color:white;
+            text-decoration:none;
+            border:1px solid white;
+            padding:10px 25px;
+            border-radius:6px;
+            margin-left:10px;
+        }
+
+        .menu a:hover{
+            background:white;
+            color:#073b8c;
+        }
+
+        
+        .container{
+            width:85%;
+            margin:40px auto;
+            text-align:center;
+        }
+
+        
+        h1{
+            color:#073b8c;
+            font-size:38px;
+        }
+
+        .line{
+            width:70px;
+            height:4px;
+            background:#1976e8;
+            margin:0 auto 35px;
+        }
+
+       
+        .courses{
+            display:flex;
+            justify-content:center;
+            flex-wrap:wrap;
+            gap:25px;
+        }
+
+        .course{
+            width:220px;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 3px 12px #ccc;
+            box-sizing:border-box;
+        }
+
+        .course:hover{
+            transform:translateY(-5px);
+            box-shadow:0 6px 15px #aaa;
+        }
+
+        
+        .icon{
+            width:65px;
+            height:65px;
+            margin:auto;
+            border-radius:50%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:30px;
+        }
+
+        .html .icon{
+            background:#ff7043;
+        }
+
+        .css .icon{
+            background:#2196f3;
+        }
+
+        .java .icon{
+            background:#e53935;
+        }
+
+        .python .icon{
+            background:#fbc02d;
+        }
+
+        .database .icon{
+            background:#43a047;
+        }
+
+        .course h2{
+            color:#073b8c;
+            margin:15px 0 10px;
+        }
+
+        .course p{
+            color:#555;
+        }
+
+       
+        .dashboard{
+            display:inline-block;
+            margin-top:40px;
+            background:#1976e8;
+            color:white;
+            text-decoration:none;
+            padding:12px 30px;
+            border-radius:6px;
+        }
+
+        .dashboard:hover{
+            background:#073b8c;
+        }
+
+        
+        footer{
+            background:#073b8c;
+            color:white;
+            text-align:center;
+            padding:18px;
+            margin-top:50px;
+        }
+
+        .dark{
+            background:#222;
+            color:white;
+        }
+
+        .dark .header{
+            background:#000;
+        }
+
+        .hamburger{
+            display:none;
+            background:none;
+            border:none;
+            color:white;
+            font-size:22px;
+            cursor:pointer;
+        }
+
+        @media(max-width:700px){
+            .hamburger{
+                display:block;
+            }
+
+            .menu a{
+                display:none;
+            }
+
+            .menu.show a{
+                display:block;
+            }
+        }
+
+        .course{
+            cursor:pointer;
+        }
+
+        .modal{
+            display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.6);
+        }
+
+        .modal-content{
+            background:white;
+            width:300px;
+            margin:120px auto;
+            padding:20px;
+            border-radius:8px;
+            text-align:center;
+        }
+
+
+        /* ========================= */
+        /* THEME BUTTON */
+        /* ========================= */
+
+        .menu button:first-of-type{
+            width:50px !important;
+            height:50px !important;
+
+            padding:0 !important;
+
+            margin-left:15px !important;
+
+            border:none !important;
+            border-radius:50% !important;
+
+            background:white !important;
+
+            color:#073b8c;
+
+            font-size:25px !important;
+
+            display:inline-flex !important;
+
+            align-items:center !important;
+            justify-content:center !important;
+
+            cursor:pointer;
+
+            vertical-align:middle;
+        }
+
+        .menu button:first-of-type:hover{
+            background:white !important;
+            color:#073b8c !important;
+        }
+
+
+        /* ========================= */
+        /* DARK MODE */
+        /* ========================= */
+
+        .dark h1{
+            color:white;
+        }
+
+        .dark .course{
+            background:white;
+            color:#222;
+        }
+
+        .dark .course h2{
+            color:#073b8c;
+        }
+
+        .dark .course p{
+            color:#555;
+        }
+
+        .dark .dashboard{
+            color:white;
+        }
+
+        .dark footer{
+            background:#000;
+        }
+
+        .dark .modal-content{
+            background:white;
+            color:#222;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+<div class="header">
+
+    <div class="logo">
+        🎓 StudentHub
+    </div>
+
+    <div class="menu" id="nav">
+
+        <a href="login.html">Login</a>
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <button onclick="toggleTheme()">🌙</button>
+
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="container">
+
+    <h1>Courses</h1>
+
+    <div class="line"></div>
+
+
+    <div class="courses">
+
+
+        
+
+        <div class="course html" onclick="showCourse('HTML', 'Learn how to build and structure web pages.')">
+
+            <div class="icon">
+                🌐
+            </div>
+
+            <h2>HTML</h2>
+
+            <p>
+                Learn the basics of creating web pages.
+            </p>
+
+        </div>
+
+
+        
+
+        <div class="course css" onclick="showCourse('CSS', 'Learn how to style and design websites.')">
+
+            <div class="icon">
+                🎨
+            </div>
+
+            <h2>CSS</h2>
+
+            <p>
+                Learn how to design and style websites.
+            </p>
+
+        </div>
+
+
+       
+
+        <div class="course java" onclick="showCourse('Java', 'Learn programming and object-oriented concepts.')">
+
+            <div class="icon">
+                ☕
+            </div>
+
+            <h2>Java</h2>
+
+            <p>
+                Learn programming and object-oriented concepts.
+            </p>
+
+        </div>
+
+
+        
+
+        <div class="course python" onclick="showCourse('Python', 'Learn Python programming and problem solving.')">
+
+            <div class="icon">
+                🐍
+            </div>
+
+            <h2>Python</h2>
+
+            <p>
+                Learn Python programming and problem solving.
+            </p>
+
+        </div>
+
+
+        
+
+        <div class="course database" onclick="showCourse('Database', 'Learn how to store and manage data.')">
+
+            <div class="icon">
+                🗄️
+            </div>
+
+            <h2>Database</h2>
+
+            <p>
+                Learn how to store and manage data.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    
+
+    <a href="dashboard.html" class="dashboard">
+        ← Back to Dashboard
+    </a>
+
+</div>
+
+
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All rights reserved.
+
+</footer>
+
+
+<div class="modal" id="courseModal">
+
+    <div class="modal-content">
+
+        <h2 id="courseTitle"></h2>
+
+        <p id="courseText"></p>
+
+        <button onclick="closeModal()">Close</button>
+
+    </div>
+
+</div>
+
+
+<script src="../js/courses.js"></script>
+
+</body>
+</html>
