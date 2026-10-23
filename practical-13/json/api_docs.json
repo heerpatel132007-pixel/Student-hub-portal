@@ -1,0 +1,56 @@
+{
+  "baseUrl": "../php/api/events.php",
+  "endpoints": [
+    {
+      "method": "GET",
+      "url": "events.php",
+      "body": "-",
+      "success": "200 OK",
+      "access": "public",
+      "what": "List events (optional ?q=search)"
+    },
+    {
+      "method": "GET",
+      "url": "events.php?id=3",
+      "body": "-",
+      "success": "200 OK",
+      "access": "public",
+      "what": "Get one event"
+    },
+    {
+      "method": "POST",
+      "url": "events.php",
+      "body": "JSON event",
+      "success": "201 Created",
+      "access": "admin",
+      "what": "Add an event"
+    },
+    {
+      "method": "PUT",
+      "url": "events.php?id=3",
+      "body": "JSON event",
+      "success": "200 OK",
+      "access": "admin",
+      "what": "Update an event"
+    },
+    {
+      "method": "DELETE",
+      "url": "events.php?id=3",
+      "body": "-",
+      "success": "200 OK",
+      "access": "admin",
+      "what": "Delete an event"
+    }
+  ],
+  "errors": {
+    "400": "Bad request / invalid JSON",
+    "401": "Not logged in",
+    "403": "Not an admin",
+    "404": "Event not found",
+    "405": "Method not allowed",
+    "409": "Same title and date already exists",
+    "415": "Content-Type must be application/json",
+    "422": "Validation errors",
+    "500": "Database error"
+  }
+}

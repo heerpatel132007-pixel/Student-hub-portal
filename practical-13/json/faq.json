@@ -1,0 +1,10 @@
+[
+  { "id": 1, "category": "Account",     "question": "How do I reset my password?", "answer": "Use the \"Forgot Password\" link on the Login page." },
+  { "id": 2, "category": "Academics",   "question": "Where can I see my results?", "answer": "Go to the Results page from your Dashboard." },
+  { "id": 3, "category": "Academics",   "question": "How do I submit an assignment?", "answer": "Open the Assignments page and follow the instructions there." },
+  { "id": 4, "category": "Academics",   "question": "Where can I find my timetable?", "answer": "Open the Timetable page from your Dashboard to see your weekly schedule." },
+  { "id": 5, "category": "Account",     "question": "How do I update my profile details?", "answer": "Go to the Profile page, edit your details and click Save Profile." },
+  { "id": 6, "category": "Notices",     "question": "How do I know about new notices?", "answer": "Check the Notices page regularly. New notices are listed with the latest first." },
+  { "id": 7, "category": "Technical",   "question": "The website is not loading properly. What should I do?", "answer": "Refresh the page, clear your browser cache or try a different browser." },
+  { "id": 8, "category": "Technical",   "question": "Can I use the portal on my phone?", "answer": "Yes. The portal works on mobile phones and has a menu button for small screens." }
+]

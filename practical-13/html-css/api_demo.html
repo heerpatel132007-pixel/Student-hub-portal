@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Fetch API Demo</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef4ff;
+        }
+
+        .header{
+            background:#0b2e73;
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 40px;
+        }
+
+        .header h2{
+            margin:0;
+            font-size:28px;
+        }
+
+        .header a{
+            color:white;
+            text-decoration:none;
+            border:1px solid white;
+            padding:10px 22px;
+            border-radius:6px;
+        }
+
+        .header a:hover{
+            background:white;
+            color:#0b2e73;
+        }
+
+        #themeButton{
+            width:50px;
+            height:45px;
+            margin-left:15px;
+            border:0;
+            border-radius:50%;
+            background:white;
+            font-size:25px;
+            cursor:pointer;
+            vertical-align:middle;
+        }
+
+        #logoutBtn{
+            margin-left:10px;
+            padding:10px 22px;
+            border:0;
+            border-radius:6px;
+            background:#d32f2f;
+            color:white;
+            font-size:15px;
+            cursor:pointer;
+        }
+
+        .container{
+            width:92%;
+            max-width:1150px;
+            margin:35px auto;
+        }
+
+        .container h1{
+            color:#0b2e73;
+            text-align:center;
+            font-size:36px;
+            margin-bottom:20px;
+        }
+
+        /* Messages */
+
+        .msg{
+            display:none;
+            padding:13px 18px;
+            border-radius:6px;
+            margin-bottom:18px;
+            font-size:15px;
+        }
+
+        .msg.success{
+            display:block;
+            background:#e6f6ea;
+            color:#1b6b34;
+            border-left:5px solid #43a047;
+        }
+
+        .msg.error{
+            display:block;
+            background:#fdeaea;
+            color:#a12622;
+            border-left:5px solid #e53935;
+        }
+
+        /* Search / filter bar */
+
+        .toolbar{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            margin-bottom:18px;
+        }
+
+        .toolbar input,
+        .toolbar select{
+            padding:11px 12px;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:15px;
+            background:white;
+            color:#222;
+        }
+
+        .toolbar input{
+            flex:1;
+            min-width:220px;
+        }
+
+        .btn{
+            background:#1976e8;
+            color:white;
+            border:0;
+            border-radius:6px;
+            padding:11px 22px;
+            font-size:15px;
+            cursor:pointer;
+        }
+
+        .btn:hover{
+            background:#0b2e73;
+        }
+
+        .btn.gray{
+            background:#6c757d;
+        }
+
+        .btn.red{
+            background:#d32f2f;
+        }
+
+        /* Table */
+
+        .table-wrap{
+            overflow-x:auto;
+            background:white;
+            border-radius:8px;
+            box-shadow:0 3px 12px #ccc;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#1565c0;
+            color:white;
+            padding:13px 12px;
+            text-align:left;
+            font-size:15px;
+            white-space:nowrap;
+        }
+
+        td{
+            padding:12px;
+            border-bottom:1px solid #e3e3e3;
+            color:#333;
+            font-size:14px;
+        }
+
+        tr:nth-child(even) td{
+            background:#f0f6ff;
+        }
+
+        .badge{
+            display:inline-block;
+            padding:2px 9px;
+            border-radius:10px;
+            font-size:12px;
+            background:#e3f0ff;
+            color:#0b2e73;
+        }
+
+        .badge.admin{
+            background:#fde1e1;
+            color:#a12622;
+        }
+
+        .actions button{
+            border:0;
+            border-radius:5px;
+            padding:6px 12px;
+            margin-right:4px;
+            font-size:13px;
+            color:white;
+            cursor:pointer;
+        }
+
+        .actions .edit{
+            background:#1976e8;
+        }
+
+        .actions .del{
+            background:#d32f2f;
+        }
+
+        .empty{
+            text-align:center;
+            color:#555;
+            padding:25px;
+        }
+
+        /* Pager */
+
+        .pager{
+            text-align:center;
+            margin-top:18px;
+        }
+
+        .pager button{
+            margin:3px;
+            padding:8px 14px;
+            border:0;
+            border-radius:6px;
+            background:#1976e8;
+            color:white;
+            cursor:pointer;
+        }
+
+        .pager button.active{
+            background:#073b8c;
+        }
+
+        .pager button:disabled{
+            opacity:0.5;
+            cursor:default;
+        }
+
+        .info{
+            display:block;
+            margin-top:10px;
+            font-size:14px;
+            color:#555;
+        }
+
+        .back{
+            display:inline-block;
+            margin-top:25px;
+            color:#1565c0;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        /* Pop-up forms */
+
+        .modal{
+            display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.6);
+            overflow-y:auto;
+        }
+
+        .modal-box{
+            background:white;
+            width:90%;
+            max-width:560px;
+            margin:40px auto;
+            padding:25px 30px;
+            border-radius:10px;
+            color:#222;
+        }
+
+        .modal-box h2{
+            margin-top:0;
+            color:#0b2e73;
+        }
+
+        .modal-box label{
+            display:block;
+            color:#0b2e73;
+            font-weight:bold;
+            margin:12px 0 5px;
+            font-size:14px;
+        }
+
+        .modal-box input,
+        .modal-box select,
+        .modal-box textarea{
+            width:100%;
+            padding:10px;
+            box-sizing:border-box;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:14px;
+            font-family:Arial, sans-serif;
+        }
+
+        .modal-box textarea{
+            resize:none;
+        }
+
+        .row{
+            display:flex;
+            gap:12px;
+        }
+
+        .row > div{
+            flex:1;
+        }
+
+        .err{
+            color:red;
+            font-size:12px;
+            margin-top:3px;
+            min-height:14px;
+        }
+
+        .hint{
+            font-size:12px;
+            color:#777;
+        }
+
+        .modal-buttons{
+            text-align:right;
+            margin-top:20px;
+        }
+
+        .modal-buttons .btn{
+            margin-left:8px;
+        }
+
+        footer{
+            background:#0b2e73;
+            color:white;
+            text-align:center;
+            padding:18px;
+            margin-top:40px;
+        }
+
+        .dark{
+            background:#222;
+            color:white;
+        }
+
+        .dark .header,
+        .dark footer{
+            background:#000;
+        }
+
+        .dark .container h1,
+        .dark .info{
+            color:white;
+        }
+
+        .dark .back{
+            color:#8ab8ff;
+        }
+
+
+        /* Event posters */
+
+        .thumb{
+            width:48px;
+            height:64px;
+            object-fit:cover;
+            border-radius:5px;
+            border:1px solid #ccc;
+            display:block;
+        }
+
+        .noposter{
+            width:48px;
+            height:64px;
+            border-radius:5px;
+            background:#e3e8f2;
+            color:#7a86a1;
+            font-size:10px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+        }
+
+        .preview{
+            display:none;
+            width:120px;
+            height:160px;
+            object-fit:cover;
+            border-radius:6px;
+            border:1px solid #ccc;
+            margin-top:8px;
+        }
+
+        .check{
+            display:none;
+            margin-top:8px;
+            font-size:13px;
+            font-weight:normal !important;
+            color:#333 !important;
+        }
+
+        .check input{
+            width:auto !important;
+            margin-right:6px;
+        }
+
+        .badge.past{
+            background:#eceff4;
+            color:#5b6478;
+        }
+
+        .badge.soon{
+            background:#e6f6ea;
+            color:#1b6b34;
+        }
+
+
+        /* API demo */
+
+        .grid2{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+            align-items:flex-start;
+        }
+
+        .grid2 > div{
+            flex:1;
+            min-width:320px;
+        }
+
+        .panel{
+            background:white;
+            border-radius:8px;
+            box-shadow:0 3px 12px #ccc;
+            padding:15px 18px;
+            margin-bottom:20px;
+            color:#222;
+        }
+
+        .panel h3{
+            margin:0 0 10px;
+            color:#0b2e73;
+            font-size:17px;
+        }
+
+        .addrow{
+            display:flex;
+            flex-wrap:wrap;
+            gap:8px;
+            align-items:flex-start;
+        }
+
+        .addrow > div{
+            flex:1;
+            min-width:120px;
+        }
+
+        .addrow input{
+            width:100%;
+            padding:9px;
+            box-sizing:border-box;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:14px;
+        }
+
+        .cell-input{
+            width:100%;
+            padding:6px;
+            box-sizing:border-box;
+            border:1px solid #1976e8;
+            border-radius:5px;
+            font-size:13px;
+        }
+
+        .method{
+            display:inline-block;
+            min-width:58px;
+            text-align:center;
+            padding:2px 8px;
+            border-radius:4px;
+            color:white;
+            font-size:12px;
+            font-weight:bold;
+        }
+
+        .m-GET{ background:#2e7d32; }
+        .m-POST{ background:#1976e8; }
+        .m-PUT{ background:#f57c00; }
+        .m-DELETE{ background:#d32f2f; }
+
+        .logitem{
+            border-left:4px solid #ccc;
+            padding:6px 10px;
+            margin-bottom:10px;
+            font-size:13px;
+        }
+
+        .logitem.ok{ border-left-color:#43a047; }
+        .logitem.bad{ border-left-color:#e53935; }
+
+        .logitem pre{
+            background:#f4f6fb;
+            border-radius:5px;
+            padding:7px;
+            margin:6px 0 0;
+            max-height:120px;
+            overflow:auto;
+            font-size:11px;
+            white-space:pre-wrap;
+            word-break:break-all;
+        }
+
+        .small-table td, .small-table th{
+            padding:7px 8px;
+            font-size:12px;
+        }
+
+        .sure{
+            font-size:13px;
+            color:#a12622;
+            margin-right:4px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="header">
+
+    <h2>🎓 StudentHub Admin</h2>
+
+    <div>
+
+        <a href="../php/admin.php">Admin Home</a>
+
+        <button id="themeButton" onclick="toggleTheme()">🌙</button>
+
+        <button id="logoutBtn" onclick="logout()">Logout</button>
+
+    </div>
+
+</div>
+
+
+<div class="container">
+
+    <h1>Events JSON API + Fetch</h1>
+
+    <div id="pageMessage" class="msg"></div>
+
+    <div class="panel">
+
+        <h3>Add an event (POST)</h3>
+
+        <div class="addrow">
+
+            <div><input type="text" id="a_title" placeholder="Title"><div class="err" id="ea_title"></div></div>
+            <div><input type="date" id="a_event_date"><div class="err" id="ea_event_date"></div></div>
+            <div><input type="text" id="a_location" placeholder="Location"><div class="err" id="ea_location"></div></div>
+            <div><input type="number" id="a_seats" placeholder="Seats"><div class="err" id="ea_seats"></div></div>
+            <div><input type="text" id="a_description" placeholder="Description"></div>
+
+            <button class="btn" onclick="addEvent()">Add</button>
+
+        </div>
+
+    </div>
+
+    <div class="toolbar">
+
+        <input type="text" id="searchBox" placeholder="Search title or location (GET ?q=)...">
+
+        <button class="btn gray" onclick="document.getElementById('searchBox').value='';loadEvents()">Reset</button>
+
+        <span class="info" id="countInfo"></span>
+
+    </div>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Seats</th>
+                    <th>Reg.</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="eventRows">
+                <tr><td colspan="7" class="empty">Loading...</td></tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <br>
+
+    <div class="grid2">
+
+        <div class="panel">
+
+            <h3>Request log <button class="btn gray" style="padding:3px 10px;font-size:12px;float:right" onclick="clearLog()">Clear</button></h3>
+
+            <div id="apiLog"><span class="hint">Every fetch() call appears here.</span></div>
+
+        </div>
+
+        <div class="panel">
+
+            <h3>API endpoints</h3>
+
+            <table class="small-table">
+
+                <thead><tr><th>Method</th><th>URL</th><th>Success</th><th>Access</th></tr></thead>
+
+                <tbody id="docRows"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <a href="../php/admin.php" class="back">← Back to Admin Dashboard</a>
+
+</div>
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All rights reserved.
+
+</footer>
+
+
+<script src="../js/api_demo.js"></script>
+
+</body>
+
+</html>
