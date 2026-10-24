@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Assignments</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef5ff;
+        }
+
+        .header{
+            background:#073b8c;
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 50px;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        .menu{
+            display:flex;
+            align-items:center;
+        }
+
+        .menu a{
+            color:white;
+            text-decoration:none;
+            border:1px solid white;
+            padding:10px 25px;
+            border-radius:6px;
+            margin-left:10px;
+        }
+
+        .menu a:hover{
+            background:white;
+            color:#073b8c;
+        }
+
+        /* Theme Button */
+
+        #themeButton{
+            width:50px;
+            height:45px;
+            margin-left:15px;
+            border:0;
+            border-radius:50%;
+            background:white;
+            font-size:25px;
+            cursor:pointer;
+        }
+
+        .container{
+            width:80%;
+            margin:45px auto;
+            text-align:center;
+        }
+
+        h1{
+            color:#073b8c;
+            font-size:40px;
+            margin-bottom:10px;
+        }
+
+        .line{
+            width:70px;
+            height:4px;
+            background:#1976e8;
+            margin:0 auto 35px;
+            border-radius:5px;
+        }
+
+        .assignment-box{
+            width:80%;
+            margin:auto;
+            background:white;
+            padding:10px 35px;
+            border-radius:12px;
+            box-shadow:0 3px 12px #d0d0d0;
+            text-align:left;
+        }
+
+        .assignment{
+            display:flex;
+            align-items:center;
+            padding:25px 10px;
+            border-bottom:1px solid #ddd;
+            cursor:pointer;
+        }
+
+        .assignment:last-child{
+            border-bottom:none;
+        }
+
+        .icon{
+            width:65px;
+            height:65px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:30px;
+            margin-right:30px;
+        }
+
+        .html .icon{
+            background:#fff0df;
+        }
+
+        .css .icon{
+            background:#e5f0ff;
+        }
+
+        .java .icon{
+            background:#ffe6e6;
+        }
+
+        .database .icon{
+            background:#eee5ff;
+        }
+
+        .assignment h2{
+            margin:0;
+            color:#111;
+            font-size:22px;
+        }
+
+        .details{
+            display:none;
+            padding:10px 10px 15px;
+            color:#555;
+            font-size:14px;
+        }
+
+        .dashboard{
+            display:inline-block;
+            margin-top:35px;
+            background:#1976e8;
+            color:white;
+            text-decoration:none;
+            padding:13px 40px;
+            border-radius:6px;
+            font-size:17px;
+        }
+
+        .dashboard:hover{
+            background:#073b8c;
+        }
+
+        footer{
+            background:#073b8c;
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:50px;
+        }
+
+        /* Dark Mode */
+
+        .dark{
+            background:#222;
+            color:white;
+        }
+
+        .dark .header{
+            background:#000;
+        }
+
+        .dark h1{
+            color:white;
+        }
+
+        .dark .assignment-box{
+            background:white;
+        }
+
+        .dark .assignment h2{
+            color:#111;
+        }
+
+        .dark .details{
+            color:#555;
+        }
+
+        .dark footer{
+            background:#000;
+        }
+
+        /* Hamburger */
+
+        .hamburger{
+            display:none;
+            background:none;
+            border:none;
+            color:white;
+            font-size:22px;
+            cursor:pointer;
+        }
+
+        @media(max-width:700px){
+
+            .header{
+                padding:15px 20px;
+            }
+
+            .logo{
+                font-size:22px;
+            }
+
+            .assignment-box{
+                width:95%;
+                box-sizing:border-box;
+            }
+
+            .assignment h2{
+                font-size:18px;
+            }
+
+            .hamburger{
+                display:block;
+            }
+
+            .menu a{
+                display:none;
+            }
+
+            .menu.show a{
+                display:block;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="header">
+
+    <div class="logo">
+        🎓 StudentHub
+    </div>
+
+
+    <div class="menu" id="nav">
+
+        <a href="login.html">
+            Login
+        </a>
+
+        <a href="../php/dashboard.php">
+            Dashboard
+        </a>
+
+        <button id="themeButton" onclick="toggleTheme()">🌙</button>
+
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    </div>
+
+</div>
+
+
+<div class="container">
+
+    <h1>Assignments</h1>
+
+    <div class="line"></div>
+
+
+    <div class="assignment-box">
+
+
+        <div class="assignment html"
+             onclick="toggleDetails('html-details')">
+
+            <div class="icon">
+                🌐
+            </div>
+
+            <h2>
+                HTML Assignment
+            </h2>
+
+        </div>
+
+
+        <div class="details" id="html-details">
+            Due Friday. Build a page using semantic HTML tags.
+        </div>
+
+
+        <div class="assignment css"
+             onclick="toggleDetails('css-details')">
+
+            <div class="icon">
+                🎨
+            </div>
+
+            <h2>
+                CSS Assignment
+            </h2>
+
+        </div>
+
+
+        <div class="details" id="css-details">
+            Due Monday. Style your HTML page with Flexbox.
+        </div>
+
+
+        <div class="assignment java"
+             onclick="toggleDetails('java-details')">
+
+            <div class="icon">
+                ☕
+            </div>
+
+            <h2>
+                Java Assignment
+            </h2>
+
+        </div>
+
+
+        <div class="details" id="java-details">
+            Due in two weeks. Write a Java program using inheritance.
+        </div>
+
+
+        <div class="assignment database"
+             onclick="toggleDetails('database-details')">
+
+            <div class="icon">
+                🗄️
+            </div>
+
+            <h2>
+                Database Assignment
+            </h2>
+
+        </div>
+
+
+        <div class="details" id="database-details">
+            Due end of month. Design a database schema and write SQL queries.
+        </div>
+
+
+    </div>
+
+
+    <a href="../php/dashboard.php" class="dashboard">
+        Dashboard
+    </a>
+
+</div>
+
+
+<footer>
+
+    © 2026 StudentHub Portal. All rights reserved.
+
+</footer>
+
+
+<script src="../js/assignments.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+{
+  "menu": [
+    {
+      "label": "Dashboard",
+      "icon": "🏠",
+      "url": "../php/dashboard.php",
+      "roles": [
+        "student"
+      ]
+    },
+    {
+      "label": "Profile",
+      "icon": "👤",
+      "url": "profile.html",
+      "roles": [
+        "student"
+      ]
+    },
+    {
+      "label": "Courses",
+      "icon": "📚",
+      "url": "../php/page.php?p=courses",
+      "roles": [
+        "student"
+      ]
+    },
+    {
+      "label": "Timetable",
+      "icon": "📅",
+      "url": "../php/page.php?p=timetable",
+      "roles": [
+        "student"
+      ]
+    },
+    {
+      "label": "Assignments",
+      "icon": "📝",
+      "url": "../php/page.php?p=assignments",
+      "roles": [
+        "student"
+      ]
+    },
+    {
+      "label": "Results",
+      "icon": "📊",
+      "url": "../php/page.php?p=results",
+      "roles": [
+        "student"
+      ]
+    },
+    {
+      "label": "Events",
+      "icon": "🎉",
+      "url": "events.html",
+      "roles": [
+        "student"
+      ]
+    },
+    {
+      "label": "Admin Dashboard",
+      "icon": "📈",
+      "url": "../php/admin.php",
+      "roles": [
+        "admin"
+      ]
+    },
+    {
+      "label": "Manage Students",
+      "icon": "👥",
+      "url": "../php/manage_students.php",
+      "roles": [
+        "admin"
+      ]
+    },
+    {
+      "label": "Manage Events",
+      "icon": "🎉",
+      "url": "../php/manage_events.php",
+      "roles": [
+        "admin"
+      ]
+    },
+    {
+      "label": "API Demo",
+      "icon": "⚡",
+      "url": "../php/api_demo.php",
+      "roles": [
+        "admin"
+      ]
+    },
+    {
+      "label": "Notices",
+      "icon": "🔔",
+      "url": "../php/page.php?p=notices",
+      "roles": [
+        "student",
+        "admin"
+      ]
+    }
+  ]
+}
